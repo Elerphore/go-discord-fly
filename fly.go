@@ -9,17 +9,21 @@ import (
 
 func main() {
 
+	msg := WebHookMessage{
+		Content: "There's some structs I've used here.",
+		Tts:     true,
+	}
+
 	client := &http.Client{}
 
-	requestBody, err := json.Marshal(map[string]string{
-		"content": "Again.",
-	})
+	requestBody, err := json.Marshal(msg)
+
+	log.Println(requestBody)
 
 	if err != nil {
 		log.Fatal("error")
 	}
 
-	const webhookToken = ""
 	req, err := http.NewRequest("POST", webhookToken, bytes.NewBuffer(requestBody))
 	req.Header.Add("Content-Type", "application/json")
 
