@@ -1,3 +1,42 @@
+// https://discord.com/developers/docs/resources/webhook#create-webhook
+// POST/channels/{channel.id}/webhooks
+
+// https://discord.com/developers/docs/resources/webhook#get-channel-webhooks
+// GET/channels/{channel.id}/webhooks
+
+// https://discord.com/developers/docs/resources/webhook#get-guild-webhooks
+// GET/guilds/{guild.id}/webhooks
+
+// https://discord.com/developers/docs/resources/webhook#get-webhook
+// GET/webhooks/{webhook.id}
+
+// https://discord.com/developers/docs/resources/webhook#get-webhook-with-token
+// GET/webhooks/{webhook.id}/{webhook.token}
+
+// https://discord.com/developers/docs/resources/webhook#modify-webhook
+// PATCH/webhooks/{webhook.id}
+
+// https://discord.com/developers/docs/resources/webhook#modify-webhook-with-token
+// PATCH/webhooks/{webhook.id}/{webhook.token}
+
+// https://discord.com/developers/docs/resources/webhook#delete-webhook
+// DELETE/webhooks/{webhook.id}
+
+// https://discord.com/developers/docs/resources/webhook#delete-webhook-with-token
+// DELETE/webhooks/{webhook.id}/{webhook.token}
+
+// https://discord.com/developers/docs/resources/webhook#execute-webhook
+// POST/webhooks/{webhook.id}/{webhook.token}
+
+// https://discord.com/developers/docs/resources/webhook#get-webhook-message
+// GET/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}
+
+// https://discord.com/developers/docs/resources/webhook#edit-webhook-message
+// PATCH/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}
+
+// https://discord.com/developers/docs/resources/webhook#delete-webhook-message
+// DELETE/webhooks/{webhook.id}/{webhook.token}/messages/{message.id}
+
 package main
 
 import (
@@ -29,7 +68,7 @@ func main() {
 	compss[0] = componentOne
 
 	msg := WebHookMessage{
-		Content:    "Lol, sorry.",
+		Content:    "Message for  the cuttiest girl ever..",
 		Tts:        false,
 		Username:   "Some random name",
 		AvatarUrl:  "https://i.pinimg.com/originals/cd/bf/5f/cdbf5f93123170b215d1d81980d8a1ca.jpg",
@@ -44,6 +83,7 @@ func main() {
 		log.Fatal(err)
 	}
 
+	const webhookToken = "https://discord.com/api/webhooks/947040904034779156/zSAT0yoEUsgK02tjNHAuaPKtsf_UEoXSr3B1Mhv7qINlSKCQqevCpqXVsBOuNMT30wYE"
 	req, err := http.NewRequest("POST", webhookToken, bytes.NewBuffer(requestBody))
 	req.Header.Add("Content-Type", "application/json")
 
