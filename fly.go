@@ -1,3 +1,5 @@
+// list of supported webhooks
+
 // https://discord.com/developers/docs/resources/webhook#create-webhook
 // POST/channels/{channel.id}/webhooks
 
@@ -83,7 +85,6 @@ func main() {
 		log.Fatal(err)
 	}
 
-	const webhookToken = "https://discord.com/api/webhooks/947040904034779156/zSAT0yoEUsgK02tjNHAuaPKtsf_UEoXSr3B1Mhv7qINlSKCQqevCpqXVsBOuNMT30wYE"
 	req, err := http.NewRequest("POST", webhookToken, bytes.NewBuffer(requestBody))
 	req.Header.Add("Content-Type", "application/json")
 
